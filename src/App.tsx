@@ -6,17 +6,17 @@ function App() {
   return (
     <Layout>
       <Search />
-      </Layout>
+    </Layout>
   );
 }
 
 export default App;
 
 const Layout = styled.div`
-background-color: #CAE9FF;
-flex-direction: column;
-justify-content: space-between;
-display: flex;
-width: 100%;
-min-height: calc(100vh - 120px);
-`
+  background-color: #cae9ff;
+  flex-direction: column;
+  justify-content: space-between;
+  display: flex;
+  width: 100%;
+  min-height: calc(100vh - 120px);
+`;

@@ -19,7 +19,7 @@ const SearchInput = () => {
   return (
     <Layout>
       <InputWrapper>
-        {!isFocus && (
+        {!isFocus && inputText.length < 1 && (
           <IconTextWrapper>
             <IconWrapper>Q</IconWrapper>
             질환명을 입력해 주세요.
@@ -35,7 +35,7 @@ const SearchInput = () => {
           onFocus={inverseFocus}
           onBlur={inverseFocus}
         />
-        {isFocus && (
+        {isFocus && inputText.length > 1 && (
           <InputCancelButton onClick={clearInputText}>X</InputCancelButton>
         )}
       </InputWrapper>

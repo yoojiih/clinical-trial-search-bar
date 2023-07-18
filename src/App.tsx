@@ -1,13 +1,22 @@
 import React from 'react';
-import './App.css';
+import styled from 'styled-components';
 import Search from './components/Search';
 
 function App() {
   return (
-    <div className='App'>
+    <Layout>
       <Search />
-    </div>
+      </Layout>
   );
 }
 
 export default App;
+
+const Layout = styled.div`
+background-color: #CAE9FF;
+flex-direction: column;
+justify-content: space-between;
+display: flex;
+width: 100%;
+min-height: calc(100vh - 120px);
+`

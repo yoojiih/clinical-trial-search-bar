@@ -1,7 +1,5 @@
 const SearchBar = () => {
-  return(
-    <div> 검색 </div>
-  )
-}
+  return <div> 검색 </div>;
+};
 
-export default SearchBar
+export default SearchBar;

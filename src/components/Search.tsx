@@ -1,21 +1,21 @@
 import styled from 'styled-components';
 import SearchBar from './SearchBar';
-import People from "../images/people.svg";
+import People from '../images/people.svg';
 const Search = () => {
-  return(
+  return (
     <Layout>
-    {/* <People />     */}
-    <h2>
+      {/* <People />     */}
+      <h2>
         국내 모든 임상시험 검색하고
         <br />
         온라인으로 참여하기
-    </h2>
-    <SearchBar />
+      </h2>
+      <SearchBar />
     </Layout>
-  )
-}
+  );
+};
 
-export default Search
+export default Search;
 
 const Layout = styled.div`
   display: flex;
@@ -38,4 +38,4 @@ const Layout = styled.div`
     position: relative;
     width: 490px;
   }
-`
+`;

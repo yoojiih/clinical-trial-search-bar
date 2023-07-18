@@ -1,0 +1,25 @@
+{
+  "env": {
+    "es6": true, // es6상의 환경임을 명시해 es6 문법들 사용 가능하다고 알려줌
+    "browser": true,
+    "node": true
+  },
+  "extends": [
+    "react-app",
+    "eslint:recommended",
+    "prettier",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    "no-var": ["error"], // var 금지
+    "no-console": "warn",
+    "@typescript-eslint/no-unused-vars": "warn" // 사용하지 않는 변수에 warn
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"] //절대경로 설정
+      }
+    }
+  }
+}

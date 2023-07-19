@@ -6,7 +6,35 @@ const SearchInput = ({
   saveInputText,
   clearInputText,
   inverseFocus,
+  setSelectedIndex,
+  maxIndex,
 }) => {
+  const getUpIndex = (prevIndex: number) => {
+    if (prevIndex <= 0) return maxIndex;
+    return prevIndex - 1;
+  };
+
+  const getDownIndex = (prevIndex: number) => {
+    if (prevIndex >= maxIndex) return 0;
+    return prevIndex + 1;
+  };
+
+  const onKeyDownItem = (key: string) => {
+    if (key === 'ArrowUp')
+      setSelectedIndex((prevIndex) => getUpIndex(prevIndex));
+    if (key === 'ArrowDown')
+      setSelectedIndex((prevIndex) => getDownIndex(prevIndex));
+  };
+
+  const onKeyDownInputText = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (['ArrowUp', 'ArrowDown'].includes(e.key)) {
+      e.preventDefault();
+      if (e.nativeEvent.isComposing === false) {
+        onKeyDownItem(e.key);
+      }
+    }
+  };
+
   return (
     <Layout>
       <InputWrapper>
@@ -25,6 +53,7 @@ const SearchInput = ({
           autoComplete='off'
           onFocus={inverseFocus}
           onBlur={inverseFocus}
+          onKeyDown={onKeyDownInputText}
         />
         {isFocus && inputText.length > 1 && (
           <InputCancelButton onClick={clearInputText}>X</InputCancelButton>

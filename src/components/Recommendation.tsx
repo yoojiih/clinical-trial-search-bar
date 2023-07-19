@@ -1,29 +1,29 @@
 import styled from 'styled-components';
 import ListItem from './ListItem';
-import { useSelector } from 'react-redux';
 
-const Recommendation = ({ inputText }) => {
-  const recommendation = useSelector((store) => store.recommendation);
-  const strArr = Object.keys(recommendation).map(
-    (item) => recommendation[item],
-  );
+const Recommendation = ({ inputText, recommendation, selectedIndex }) => {
   return (
     <Layout>
       <Wrapper>
         {inputText.length > 1 ? (
-            <>
+          <>
             <ListItem sickNm={inputText} />
             <IconWrapper>추천 검색어</IconWrapper>
-            {strArr &&
-            strArr?.map((issue: any, index: number) => (
+            {recommendation &&
+              recommendation?.map((issue: any, index: number) => (
                 <div key={issue.sickCd + index}>
-                <li>
-                    <ListItem sickNm={issue.sickNm} />
-                </li>
+                  <li>
+                    <ListItem
+                      sickNm={issue.sickNm}
+                      isSelected={index === selectedIndex}
+                    />
+                  </li>
                 </div>
-             ))}
-             </>
-        ) : <IconWrapper>검색어 없음</IconWrapper>}
+              ))}
+          </>
+        ) : (
+          <IconWrapper>검색어 없음</IconWrapper>
+        )}
       </Wrapper>
     </Layout>
   );

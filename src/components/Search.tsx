@@ -1,24 +1,31 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useState, useEffect } from 'react';
 import SearchInput from './SearchInput';
 import Recommendation from './Recommendation';
 import { RecommendAPI } from '../apis/recommendation';
-import { loadRecommendation } from '../store/recommendation';
 import styled from 'styled-components';
+import useDebounce from '../hooks/useDebounce';
 
 const Search = () => {
   const [inputText, setInputText] = useState('');
+  const [recommendation, setRecommendation] = useState([]);
   const [isFocus, setIsFocus] = useState(false);
-  const dispatch = useDispatch();
+  const [selectedIndex, setSelectedIndex] = useState<number>(-1);
 
-  const getTodos = (dispatch) => {
-    RecommendAPI.getIssueList(inputText).then((recommendation) =>
-      dispatch(loadRecommendation(recommendation)),
-    );
-  };
+  const getDebounce = useDebounce(async (text) => {
+    try {
+      const data = await RecommendAPI.getIssueList(inputText);
+      setRecommendation(data);
+    } catch (e) {
+      alert(e);
+    }
+  }, 500);
+
+  useEffect(() => {
+    if (inputText.length === 0) setRecommendation([]);
+    if (inputText.length > 0) getDebounce(inputText);
+  }, [inputText]);
 
   const saveInputText = (e: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(getTodos);
     setInputText(e.target.value);
   };
 
@@ -46,9 +53,17 @@ const Search = () => {
               saveInputText={saveInputText}
               clearInputText={clearInputText}
               inverseFocus={inverseFocus}
+              setSelectedIndex={setSelectedIndex}
+              maxIndex={recommendation.length - 1}
             />
             <SearchButton />
-            {isFocus && (<Recommendation inputText={inputText} />)}
+            {isFocus && (
+              <Recommendation
+                inputText={inputText}
+                recommendation={recommendation}
+                selectedIndex={selectedIndex}
+              />
+            )}
           </SearchBarSection>
         </SearchBarWrapper>
       </SearchWrapper>
@@ -87,7 +102,6 @@ const SearchWrapper = styled.div`
   }
 `;
 
-// SearchBar
 const SearchBarWrapper = styled.div`
   display: flex;
   max-width: 490px;

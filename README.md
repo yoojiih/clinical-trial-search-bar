@@ -1,46 +1,87 @@
-# Getting Started with Create React App
+## 진행 기간: 2023.07.16 ~ 2023.07.19
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+</div>
 
-## Available Scripts
+<br/>
 
-In the project directory, you can run:
+## 목차
 
-### `npm start`
+- [🔗 배포 링크](#-배포-링크)
+- [⚙️ 실행 방법](#️-실행-방법)
+- [📂 폴더 구조](#-폴더-구조)
+- [🛠️ 기술 스택](#️-기술-스택)
+- [📖 서비스 소개](#-서비스-소개)
+  - [기능 구현](#기능-구현)
+  - [페이지](#페이지)
+- [👑 Best Practice](#-best-practice)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<br/>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 🔗 배포 링크
 
-### `npm test`
+[배포사이트 바로가기](https://pre-onboarding-11th-3-1.vercel.app/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br/>
 
-### `npm run build`
+## ⚙️ 실행 방법
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**설치 및 실행**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+$ npm install
+$ npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<br/>
 
-### `npm run eject`
+## 🤝 팀 규칙
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### 브랜치 전략
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- upstream에는 main 브랜치만 존재
+- 브랜치명: `feature/#이슈번호-간단한설명`
+  - ex: `feature/#7-setting`
+- fork 해서 브랜치파서 작업한뒤 `upstream:main`으로 PR 날림
+- 코드리뷰 받고 승인 받으면 `upstream:main`에 merge
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<br/>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 📂 폴더 구조
 
-## Learn More
+```
+📦src
+  ├── 📄index.css
+  ├── 📄index.tsx
+  ├── 📄App.tsx
+  ├── 📂apis
+  ├── 📂components
+  ├── 📂hooks
+  ├── 📂images
+  └── 📂utils
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<br/>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🛠️ 기술 스택
+
+<img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=white"> <img src="https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white"> <img src="https://img.shields.io/badge/axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white"> <img src="https://img.shields.io/badge/eslint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white"> <img src="https://img.shields.io/badge/prettier-F7B93E?style=for-the-badge&logo=prettier&logoColor=white"> <img src="https://img.shields.io/badge/husky-000000?style=for-the-badge&logo=husky&logoColor=white"> <img src="https://img.shields.io/badge/vercel-000000?style=for-the-badge&logo=vercel&logoColor=white">
+
+<br/>
+
+## 📖 서비스 소개
+
+질환명 검색시 API 호출 통해서 검색어 추천 기능 구현
+
+### 기능 구현
+
+- 검색창 구현
+- 검색어 추천 기능 구현
+- 캐싱 기능 구현
+
+<br/>
+
+### 페이지
+
+<br/>
+
+## 👑 캐싱 (Cache Storage)

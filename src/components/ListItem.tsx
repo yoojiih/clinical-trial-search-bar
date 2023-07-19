@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const ItemList = (props) => {
   return (
-    <ItemWrapper>
+    <ItemWrapper isSelected={props.isSelected}>
       <Icon>{props.sickNm && 'Q'}</Icon>
       <Blank />
       <Text>{props.sickNm}</Text>
@@ -12,7 +12,7 @@ const ItemList = (props) => {
 
 export default ItemList;
 
-const ItemWrapper = styled.div`
+const ItemWrapper = styled.div<{ isSelected: boolean }>`
   flex-direction: row;
   align-items: center;
   font-size: 1rem;
@@ -22,6 +22,7 @@ const ItemWrapper = styled.div`
   display: flex;
   padding: 8px 24px;
   cursor: pointer;
+  background-color: ${(props) => (props.isSelected ? '#EEF7FF' : '#ffffff')};
 `;
 
 const Icon = styled.div`

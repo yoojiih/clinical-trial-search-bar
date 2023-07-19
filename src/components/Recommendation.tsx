@@ -10,16 +10,20 @@ const Recommendation = ({ inputText }) => {
   return (
     <Layout>
       <Wrapper>
-        <ListItem sickNm={inputText} />
-        <IconWrapper>추천 검색어</IconWrapper>
-        {strArr &&
-          strArr?.map((issue: any, index: number) => (
-            <div key={issue.sickCd + index}>
-              <li>
-                <ListItem sickNm={issue.sickNm} />
-              </li>
-            </div>
-          ))}
+        {inputText.length > 1 ? (
+            <>
+            <ListItem sickNm={inputText} />
+            <IconWrapper>추천 검색어</IconWrapper>
+            {strArr &&
+            strArr?.map((issue: any, index: number) => (
+                <div key={issue.sickCd + index}>
+                <li>
+                    <ListItem sickNm={issue.sickNm} />
+                </li>
+                </div>
+             ))}
+             </>
+        ) : <IconWrapper>검색어 없음</IconWrapper>}
       </Wrapper>
     </Layout>
   );

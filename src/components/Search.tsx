@@ -48,9 +48,7 @@ const Search = () => {
               inverseFocus={inverseFocus}
             />
             <SearchButton />
-            {isFocus && inputText.length > 1 && (
-              <Recommendation inputText={inputText} />
-            )}
+            {isFocus && (<Recommendation inputText={inputText} />)}
           </SearchBarSection>
         </SearchBarWrapper>
       </SearchWrapper>

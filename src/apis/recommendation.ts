@@ -17,20 +17,6 @@ export class RecommendAPI {
         q: keyword,
       },
     });
-
     return result.data;
   }
 }
-
-// const fetchRecommend = async () => {
-//     console.log("dlrj")
-//     let response;
-
-//     try {
-//       const response = await RecommendAPI.getIssueList("B");
-//       console.log(response);
-//       return response;
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };

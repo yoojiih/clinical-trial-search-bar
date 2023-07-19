@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const ItemList = (props) => {
   return (
     <ItemWrapper>
-      <Icon>Q</Icon>
+      <Icon>{props.sickNm && 'Q'}</Icon>
       <Blank />
       <Text>{props.sickNm}</Text>
     </ItemWrapper>

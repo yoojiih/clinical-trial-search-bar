@@ -2,18 +2,16 @@ import styled from 'styled-components';
 import ListItem from './ListItem';
 import { useSelector } from 'react-redux';
 
-const Recommendation = () => {
+const Recommendation = ({ inputText }) => {
   const recommendation = useSelector((store) => store.recommendation);
   const strArr = Object.keys(recommendation).map(
     (item) => recommendation[item],
   );
-
   return (
     <Layout>
       <Wrapper>
-        <ListItem sickNm='sd' />
+        <ListItem sickNm={inputText} />
         <IconWrapper>추천 검색어</IconWrapper>
-
         {strArr &&
           strArr?.map((issue: any, index: number) => (
             <div key={issue.sickCd + index}>

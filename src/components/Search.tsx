@@ -1,7 +1,35 @@
-import styled from 'styled-components';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import SearchInput from './SearchInput';
 import Recommendation from './Recommendation';
+import { RecommendAPI } from '../apis/recommendation';
+import { loadRecommendation } from '../store/recommendation';
+import styled from 'styled-components';
+
 const Search = () => {
+  const [inputText, setInputText] = useState('');
+  const [isFocus, setIsFocus] = useState(false);
+  const dispatch = useDispatch();
+
+  const getTodos = (dispatch) => {
+    RecommendAPI.getIssueList(inputText).then((recommendation) =>
+      dispatch(loadRecommendation(recommendation)),
+    );
+  };
+
+  const saveInputText = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(getTodos);
+    setInputText(e.target.value);
+  };
+
+  const clearInputText = () => {
+    setInputText('');
+  };
+
+  const inverseFocus = () => {
+    setIsFocus(!isFocus);
+  };
+
   return (
     <Layout>
       <SearchWrapper>
@@ -12,9 +40,17 @@ const Search = () => {
         </h2>
         <SearchBarWrapper>
           <SearchBarSection>
-            <SearchInput />
+            <SearchInput
+              inputText={inputText}
+              isFocus={isFocus}
+              saveInputText={saveInputText}
+              clearInputText={clearInputText}
+              inverseFocus={inverseFocus}
+            />
             <SearchButton />
-            <Recommendation />
+            {isFocus && inputText.length > 1 && (
+              <Recommendation inputText={inputText} />
+            )}
           </SearchBarSection>
         </SearchBarWrapper>
       </SearchWrapper>

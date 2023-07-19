@@ -1,13 +1,27 @@
 import styled from 'styled-components';
 import ListItem from './ListItem';
+import { useSelector } from 'react-redux';
 
 const Recommendation = () => {
+  const recommendation = useSelector((store) => store.recommendation);
+  const strArr = Object.keys(recommendation).map(
+    (item) => recommendation[item],
+  );
+
   return (
     <Layout>
       <Wrapper>
-        <ListItem />
+        <ListItem sickNm='sd' />
         <IconWrapper>추천 검색어</IconWrapper>
-        <ListItem />
+
+        {strArr &&
+          strArr?.map((issue: any, index: number) => (
+            <div key={issue.sickCd + index}>
+              <li>
+                <ListItem sickNm={issue.sickNm} />
+              </li>
+            </div>
+          ))}
       </Wrapper>
     </Layout>
   );
@@ -19,19 +33,19 @@ const Layout = styled.div`
   z-index: 1;
 `;
 
-const Wrapper = styled.div`
+const Wrapper = styled.ul`
   border-radius: 20px;
   background-color: rgb(255, 255, 255);
   flex-direction: column;
   display: flex;
-  width: 100%;
   position: absolute;
   top: 100%;
   left: 0px;
-  margin-top: 8px;
-  padding-top: 24px;
-  padding-bottom: 16px;
+  margin: 8px 0 0 0;
+  padding: 24px 0 16px 0;
   box-shadow: rgba(30, 32, 37, 0.1) 0px 2px 10px;
+  width: 100%;
+  list-style-type: none;
 `;
 
 const IconWrapper = styled.div`

@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-const ItemList = () => {
+const ItemList = (props) => {
   return (
     <ItemWrapper>
       <Icon>Q</Icon>
       <Blank />
-      <Text>text</Text>
+      <Text>{props.sickNm}</Text>
     </ItemWrapper>
   );
 };

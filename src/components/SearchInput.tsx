@@ -1,11 +1,23 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
+import { RecommendAPI } from '../apis/recommendation';
+import { loadRecommendation } from '../store/recommendation';
 
 const SearchInput = () => {
   const [inputText, setInputText] = useState('');
   const [isFocus, setIsFocus] = useState(false);
+  const dispatch = useDispatch();
+
+  const getTodos = (dispatch) => {
+    RecommendAPI.getIssueList('B').then((recommendation) =>
+      dispatch(loadRecommendation(recommendation)),
+    );
+  };
+
   const saveInputText = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputText(e.target.value);
+    dispatch(getTodos);
   };
 
   const clearInputText = () => {

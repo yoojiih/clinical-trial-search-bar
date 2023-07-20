@@ -1,7 +1,7 @@
 ## 진행 기간: 2023.07.16 ~ 2023.07.19
 
 </div>
-https://github.com/yoojiih/clinical-trial-search-bar/assets/33574807/01740667-4f96-4b5d-ace9-015f62429bcc
+![GIFMaker_me](https://github.com/yoojiih/clinical-trial-search-bar/assets/33574807/ad0dd48d-f61c-4259-a284-7396e194bae8)
 <br/>
 
 ## 목차

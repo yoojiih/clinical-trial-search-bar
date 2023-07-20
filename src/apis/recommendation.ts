@@ -20,7 +20,11 @@ export class RecommendAPI {
         q: keyword,
       },
     });
-    setCacheByExpireTime({ key: keyword, value: response.data, expireTime: 1000 * 60 * 5 });
+    setCacheByExpireTime({
+      key: keyword,
+      value: response.data,
+      expireTime: 1000 * 60 * 5,
+    });
     return response.data;
   }
 }

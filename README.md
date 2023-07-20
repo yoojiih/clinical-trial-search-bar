@@ -60,4 +60,16 @@ $ npm start
 
 <br/>
 
-## 👑 캐싱 (Cache Storage)
+## API 호출별로 로컬 캐싱 구현
+
+- API 호출 시 Cache Storage에 데이터가 존재한다면 다시 호출을 하지 않고 캐싱된 데이터를 사용하도록 구현완료
+- expire time은 5분으로 설정
+
+## 입력마다 API 호출하지 않도록 API 호출 횟수를 줄이는 전략 수립 및 실행
+
+- useDebounce hook을 통해 사용자가 검색어 입력 후 0.5초동안 입력이 없을 경우에만 API 호출되도록 하여 입력마다 API 호출하지 않도록 구현
+
+## 키보드만으로 추천 검색어들로 이동 가능하도록 구현
+
+- SearchInput에서 onKeyDown 이벤트가 발생했을 때 event.key 값이 ArrowDown, ArrowUp일 경우 selectedIndex가 변경되게 구현
+- RecommendationListItem의 index와 selectedIndex가 같을 때 background-color를 변경시켜 어떤 아이템이 선택되었는지 명확하게 알 수 있도록 구현

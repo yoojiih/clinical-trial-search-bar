@@ -1,5 +1,3 @@
-import { SetCacheProps } from '@type/props';
-
 export const getCacheByKey = async (key: string) => {
   const cache = await caches.open('cache');
   const cachedResponse = await cache.match(key);
@@ -15,7 +13,7 @@ export const setCacheByExpireTime = async ({
   key,
   value,
   expireTime = 0,
-}: SetCacheProps) => {
+}) => {
   const cache = await caches.open('cache');
   const item = {
     value,

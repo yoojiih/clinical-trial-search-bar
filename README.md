@@ -1,7 +1,6 @@
 ## 진행 기간: 2023.07.16 ~ 2023.07.19
 
 </div>
-
 https://github.com/yoojiih/clinical-trial-search-bar/assets/33574807/01740667-4f96-4b5d-ace9-015f62429bcc
 <br/>
 

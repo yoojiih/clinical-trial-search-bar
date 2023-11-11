@@ -2,29 +2,33 @@
 
 ![화면화면](https://github.com/yoojiih/clinical-trial-search-bar/assets/33574807/320c3697-68f4-484d-a830-384e6118748d) <br/>
 
-## 목차
-
-- [🔗 배포 링크](#-배포-링크)
-- [⚙️ 실행 방법](#️-실행-방법)
-- [📂 폴더 구조](#-폴더-구조)
-- [🛠️ 기술 스택](#️-기술-스택)
-- [📖 서비스 소개](#-서비스-소개)
-  - [기능 구현](#기능-구현)
-  - [페이지](#페이지)
-- [👑 Best Practice](#-best-practice)
-
 <br/>
+
+---
 
 ## ⚙️ 실행 방법
 
-**설치 및 실행**
-
 ```
+$ git clone https://github.com/yoojiih/clinical-trial-search-bar.git
 $ npm install
 $ npm start
 ```
 
-<br/>
+---
+
+#### 서버 실행
+
+- https://github.com/walking-sunset/assignment-api
+
+```
+$ git clone https://github.com/walking-sunset/assignment-api.git
+$ npm install
+$ npm start
+```
+
+</br>
+
+[배포사이트](clinical-trial-search-bar.vercel.app)
 
 ## 📂 폴더 구조
 

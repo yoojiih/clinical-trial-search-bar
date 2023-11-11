@@ -8,7 +8,7 @@ const SearchInput = ({
   inverseFocus,
   setSelectedIndex,
   maxIndex,
-}:any) => {
+}: any) => {
   const getUpIndex = (prevIndex: number) => {
     if (prevIndex <= 0) return maxIndex;
     return prevIndex - 1;
@@ -36,33 +36,32 @@ const SearchInput = ({
   };
 
   return (
-      <InputWrapper>
-        {!isFocus && inputText.length < 1 && (
-          <IconTextWrapper>
-            <IconWrapper>Q</IconWrapper>
-            질환명을 입력해 주세요.
-          </IconTextWrapper>
-        )}
+    <InputWrapper>
+      {!isFocus && inputText.length < 1 && (
+        <IconTextWrapper>
+          <IconWrapper>Q</IconWrapper>
+          질환명을 입력해 주세요.
+        </IconTextWrapper>
+      )}
 
-        <Input
-          type='search'
-          spellCheck='false'
-          value={inputText}
-          onChange={saveInputText}
-          autoComplete='off'
-          onFocus={inverseFocus}
-          onBlur={inverseFocus}
-          onKeyDown={onKeyDownInputText}
-        />
-        {isFocus && inputText.length > 1 && (
-          <InputCancelButton onClick={clearInputText}>X</InputCancelButton>
-        )}
-      </InputWrapper>
+      <Input
+        type='search'
+        spellCheck='false'
+        value={inputText}
+        onChange={saveInputText}
+        autoComplete='off'
+        onFocus={inverseFocus}
+        onBlur={inverseFocus}
+        onKeyDown={onKeyDownInputText}
+      />
+      {isFocus && inputText.length > 1 && (
+        <InputCancelButton onClick={clearInputText}>X</InputCancelButton>
+      )}
+    </InputWrapper>
   );
 };
 
 export default SearchInput;
-
 
 const InputWrapper = styled.div`
   flex-direction: row;

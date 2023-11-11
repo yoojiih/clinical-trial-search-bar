@@ -9,7 +9,11 @@ export const getCacheByKey = async (key: string) => {
   return null;
 };
 
-export const setCacheByExpireTime = async ({ key, value, expireTime = 0 }: any) => {
+export const setCacheByExpireTime = async ({
+  key,
+  value,
+  expireTime = 0,
+}: any) => {
   const cache = await caches.open('cache');
   const item = {
     value,

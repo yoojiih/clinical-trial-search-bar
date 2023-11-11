@@ -8,7 +8,7 @@ const SearchInput = ({
   inverseFocus,
   setSelectedIndex,
   maxIndex,
-}: any) => {
+}:any) => {
   const getUpIndex = (prevIndex: number) => {
     if (prevIndex <= 0) return maxIndex;
     return prevIndex - 1;
@@ -36,32 +36,47 @@ const SearchInput = ({
   };
 
   return (
-    <InputWrapper>
-      {!isFocus && inputText.length < 1 && (
-        <IconTextWrapper>
-          <IconWrapper>Q</IconWrapper>
-          질환명을 입력해 주세요.
-        </IconTextWrapper>
-      )}
+    <Layout>
+      <InputWrapper>
+        {!isFocus && inputText.length < 1 && (
+          <IconTextWrapper>
+            <IconWrapper>Q</IconWrapper>
+            질환명을 입력해 주세요.
+          </IconTextWrapper>
+        )}
 
-      <Input
-        type='search'
-        spellCheck='false'
-        value={inputText}
-        onChange={saveInputText}
-        autoComplete='off'
-        onFocus={inverseFocus}
-        onBlur={inverseFocus}
-        onKeyDown={onKeyDownInputText}
-      />
-      {isFocus && inputText.length > 1 && (
-        <InputCancelButton onClick={clearInputText}>X</InputCancelButton>
-      )}
-    </InputWrapper>
+        <Input
+          type='search'
+          spellCheck='false'
+          value={inputText}
+          onChange={saveInputText}
+          autoComplete='off'
+          onFocus={inverseFocus}
+          onBlur={inverseFocus}
+          onKeyDown={onKeyDownInputText}
+        />
+        {isFocus && inputText.length > 1 && (
+          <InputCancelButton onClick={clearInputText}>X</InputCancelButton>
+        )}
+      </InputWrapper>
+    </Layout>
   );
 };
 
 export default SearchInput;
+
+const Layout = styled.div`
+  flex-direction: row;
+  flex: 1;
+  align-items: center;
+  font-size: 1.125rem;
+  letter-spacing: -0.018em;
+  line-height: 1.6;
+  display: flex;
+  padding: 20px 10px 20px 24px;
+  font-weight: 400;
+  width: 100%;
+`;
 
 const InputWrapper = styled.div`
   flex-direction: row;

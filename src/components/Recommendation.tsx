@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import ListItem from './ListItem';
 
-const Recommendation = ({ inputText, recommendation, selectedIndex }) => {
+const Recommendation = ({ inputText, recommendation, selectedIndex }: any) => {
   return (
     <Layout>
       <Wrapper>

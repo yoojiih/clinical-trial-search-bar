@@ -8,7 +8,7 @@ const SearchInput = ({
   inverseFocus,
   setSelectedIndex,
   maxIndex,
-}) => {
+}:any) => {
   const getUpIndex = (prevIndex: number) => {
     if (prevIndex <= 0) return maxIndex;
     return prevIndex - 1;
@@ -21,9 +21,9 @@ const SearchInput = ({
 
   const onKeyDownItem = (key: string) => {
     if (key === 'ArrowUp')
-      setSelectedIndex((prevIndex) => getUpIndex(prevIndex));
+      setSelectedIndex((prevIndex: any) => getUpIndex(prevIndex));
     if (key === 'ArrowDown')
-      setSelectedIndex((prevIndex) => getDownIndex(prevIndex));
+      setSelectedIndex((prevIndex: any) => getDownIndex(prevIndex));
   };
 
   const onKeyDownInputText = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -36,7 +36,6 @@ const SearchInput = ({
   };
 
   return (
-    <Layout>
       <InputWrapper>
         {!isFocus && inputText.length < 1 && (
           <IconTextWrapper>
@@ -59,24 +58,11 @@ const SearchInput = ({
           <InputCancelButton onClick={clearInputText}>X</InputCancelButton>
         )}
       </InputWrapper>
-    </Layout>
   );
 };
 
 export default SearchInput;
 
-const Layout = styled.div`
-  flex-direction: row;
-  flex: 1;
-  align-items: center;
-  font-size: 1.125rem;
-  letter-spacing: -0.018em;
-  line-height: 1.6;
-  display: flex;
-  padding: 20px 10px 20px 24px;
-  font-weight: 400;
-  width: 100%;
-`;
 
 const InputWrapper = styled.div`
   flex-direction: row;

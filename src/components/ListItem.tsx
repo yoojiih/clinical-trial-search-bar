@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const ItemList = (props) => {
+const ItemList = (props: any) => {
   return (
     <ItemWrapper isSelected={props.isSelected}>
       <Icon>{props.sickNm && 'Q'}</Icon>

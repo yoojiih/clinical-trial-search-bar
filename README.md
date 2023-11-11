@@ -4,8 +4,6 @@
 
 <br/>
 
----
-
 ## ⚙️ 실행 방법
 
 ```
@@ -14,9 +12,7 @@ $ npm install
 $ npm start
 ```
 
----
-
-#### 서버 실행
+### 서버 실행
 
 - https://github.com/walking-sunset/assignment-api
 
@@ -27,8 +23,6 @@ $ npm start
 ```
 
 </br>
-
-[배포사이트](clinical-trial-search-bar.vercel.app)
 
 ## 📂 폴더 구조
 
